@@ -1,0 +1,25 @@
+git clone <repo>
+git add -A
+git commit -m "Made changes in NodeJS code"
+git push 
+
+##########
+
+Dockerfile
+
+FROM ubuntu:18.04
+RUN apt-get -y update
+RUN apt-get -y install git curl npm
+RUN mkdir /appcode
+RUN cd /appcode
+RUN git clone (repourl)
+CMD [ "node", "server.js" ]
+
+########
+
+docker build -t nodejscode .
+docker push nodejscode:latest <myregistery>
+
+#####
+
+kubectl deploy nodejscode <myregistry>
